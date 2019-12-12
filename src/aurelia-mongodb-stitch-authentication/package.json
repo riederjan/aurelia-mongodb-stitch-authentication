@@ -97,5 +97,8 @@
       "text",
       "html"
     ]
+  },
+  "dependencies": {
+    "mongodb-stitch-browser-sdk": "^4.7.1"
   }
 }
