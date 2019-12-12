@@ -27,6 +27,7 @@ Thumbs.db
 
 # Dependencies
 node_modules
+dev-app
 
 # Compiled files
 /scripts
