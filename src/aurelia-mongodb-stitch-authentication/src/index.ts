@@ -3,6 +3,6 @@ import {PLATFORM} from 'aurelia-pal';
 
 export function configure(config: FrameworkConfiguration) {
   config.globalResources([
-    PLATFORM.moduleName('./elements/authService')
+    PLATFORM.moduleName('./elements/auth-service')
   ]);
 }
