@@ -4,16 +4,21 @@ export class AuthService {
 	applicationID: string;
 	authEmail: string;
 	authPassword: string;
+	authenticated: boolean = false;
+	client: string;
 
 	show(what) {
 		if (what == "appid") {
-			console.log(this.applicationID);
+			console.log("appid: " + this.applicationID);
 		}
 		else if (what == "email") {
-			console.log(this.authEmail);
+			console.log("email: " + this.authEmail);
 		}
 		else if (what == "password") {
-			console.log(this.authPassword);
+			console.log("password: " + this.authPassword);
+		}
+		else if (what == "authstate") {
+			console.log("authstate: " + this.authenticated);
 		}
 	}
 
