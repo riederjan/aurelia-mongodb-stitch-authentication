@@ -17,10 +17,15 @@
 	    	<input type="text" placeholder="e-mail" value.bind="authEmail">
 	    	<input type="password" placeholder="password" value.bind="authPassword">
 	    </form>
+	    <div class="placeholder"></div>
+	    <button click.trigger="login()">Login</button>
 	    <hr>
-	    <button click.tigger="show(appid)">Show appid</button>
-	    <button click.tigger="show(email)">Show email</button>
-	    <button click.tigger="show(password)">Show password</button>
-	  </body>
+	    <p class="secondPageTitle">Debug section</p>
+	    <button click.trigger="show('appid')">Show appid</button>
+	    <button click.trigger="show('email')">Show email</button>
+	    <button click.trigger="show('password')">Show password</button>
+	    <button click.trigger="show('authstate')">Show authstate</button>
+	    <hr>
+	</body>
 	</html>
 </template>
