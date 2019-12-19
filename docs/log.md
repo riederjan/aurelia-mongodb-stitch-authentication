@@ -1,13 +1,37 @@
 # Aurelia mongoDB Stitch Authentication Log
-## 13 December 2019
+## 19 December 2019
 ### General
-I found out why I keep getting the following error message:
-` Refused to execute http://localhost:9000/src/elements/auth-sasdervice.js as script because "X-Content-Type: nosniff" was given and its Content-Type is not a script MIME type. `
+Today I solved a problem that is not documented in the Aurelia docs, now I tell you how.
+Since my Authentication Plugin won't have a grafical interface, the user of the plugin has to do this by himself. And because of that I also don't won't the ` index.ts ` link eather. Until now index.ts has been like this:
+``` ts
+import {FrameworkConfiguration} from 'aurelia-framework';
+import {PLATFORM} from 'aurelia-pal';
 
-` Failed to load resource: the server responded with a status of 404 (Not Found) `
+export function configure(config: FrameworkConfiguration) {
+  config.globalResources([
+      PLATFORM.moduleName('./auth-service')
+  ]);
+}
+```
+On the other side, that means the ` app.ts `, I had to import the auth-service also, but not like this:
+``` ts
+import {AuthService} from '../src/elements/auth-service'
+```
+If I'd to it like this, the path would only work for me but not for everybody, as it should be. So I had to to it another way.
+Now we're coming to the part whitch was not documented by Aurelia.
 
-Those error messages appear together if you create a new element and name it wrong. A new element (mine was authService) has to be written like the sample element: hello-world.
-That would mean if have to write my elements name like: auth-service. After I've done that, all worked fine again.
+Because I don't want a view for my plugin (that means that I have removed the auth-service.html file) I can't use the globalResources from Aurelia so I have to declare, or at least refer to the auth-service in the index.ts another way. It took a long time to figure this out, but this is how it goes:
+``` ts
+import {FrameworkConfiguration} from 'aurelia-framework';
+import {PLATFORM} from 'aurelia-pal';
 
-### Problems
-Currently I don't know why the auth-service.html and the auth-service.ts wont exchange informations like variables.
+export function configure(config: FrameworkConfiguration) {
+  config.globalResources([
+    //
+]);
+}
+
+export { AuthService } from './auth-service'
+```
+
+As you can see, I have completely removed the auth-service from the global resources and refered to it with ` export { AuthService } from './auth-service' `. This single line makes it possible to use the ` auth-service `in in the ` app.ts ` over the ` index.ts `. 
