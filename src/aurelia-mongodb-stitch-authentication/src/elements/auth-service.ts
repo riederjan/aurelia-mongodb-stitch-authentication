@@ -18,6 +18,30 @@ export class AuthService {
 	}
 
 	login() {
-		// ...
+		let client = Stitch.initializeAppClient(this.applicationID);
+		client.auth
+			.loginWithCredential(new UserPasswordCredential(this.authEmail, this.authPassword))
+			.then(authedUser => {
+				console.log("You logged in successfully!");
+				this.authenticated = true;
+			})
+			.catch(error => {
+				// Errorcode 46 on wrong input.
+				if (error.errorCode == "46") {
+					console.log("Invalid username or password.");
+				}
+				// Errorcode 5 on no input.
+				else if (error.errorCode == "5") {
+					console.log("Please enter valid informations.");
+				}
+			});
+	}
+
+	logout() {
+		
+	}
+
+	updateAuthenticated() {
+		let wasAuthenticated = this.authenticated;
 	}
 }
