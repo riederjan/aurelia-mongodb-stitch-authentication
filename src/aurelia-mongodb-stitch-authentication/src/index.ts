@@ -3,8 +3,8 @@ import {PLATFORM} from 'aurelia-pal';
 
 export function configure(config: FrameworkConfiguration) {
   config.globalResources([
-  	// 
-  ]);
+	//
+]);
 }
 
 export { AuthService } from './auth-service'
