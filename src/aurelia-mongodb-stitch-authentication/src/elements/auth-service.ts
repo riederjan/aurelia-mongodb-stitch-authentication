@@ -7,25 +7,36 @@ export class AuthService {
 	authenticated: boolean = false;
 	client: string;
 
-	show(what) {
-		if (what == "appid") {
-			console.log("appid: " + this.applicationID);
-		}
-		else if (what == "email") {
-			console.log("email: " + this.authEmail);
-		}
-		else if (what == "password") {
-			console.log("password: " + this.authPassword);
-		}
-		else if (what == "authstate") {
-			console.log("authstate: " + this.authenticated);
-		}
-	}
+	// show(what) {
+	// 	if (what == "appid") {
+	// 		console.log("appid: " + this.applicationID);
+	// 	}
+	// 	else if (what == "email") {
+	// 		console.log("email: " + this.authEmail);
+	// 	}
+	// 	else if (what == "password") {
+	// 		console.log("password: " + this.authPassword);
+	// 	}
+	// 	else if (what == "authstate") {
+	// 		console.log("authstate: " + this.authenticated);
+	// 	}
+	// }
 
-	login() {
-		let client = Stitch.initializeAppClient(this.applicationID);
+	login(authEmail?: string, authPassword?: string, applicationID?: string) {
+		let client = Stitch.initializeAppClient(applicationID);
+		let format;
+		if (typeof authEmail === 'object') {
+
+		}
+		else if (typeof authEmail === 'string') {
+			format.authEmail = {
+				'email': authEmail,
+				'password': authPassword
+			};
+		}
+
 		client.auth
-			.loginWithCredential(new UserPasswordCredential(this.authEmail, this.authPassword))
+			.loginWithCredential(new UserPasswordCredential(authEmail, authPassword))
 			.then(authedUser => {
 				console.log("You logged in successfully!");
 				this.authenticated = true;
@@ -44,9 +55,5 @@ export class AuthService {
 
 	logout() {
 		
-	}
-
-	updateAuthenticated() {
-		let wasAuthenticated = this.authenticated;
 	}
 }
