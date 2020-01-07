@@ -7,18 +7,9 @@ export class AuthService {
 	authenticated: boolean = false;
 	client: string;
 
-	login(authEmail?: string, authPassword?: string, applicationID?: string): Promise<any> {
+	login(authEmail?: string, authPassword?: string): Promise<any> {
+		console.log(applicationID);
 		let client = Stitch.initializeAppClient(applicationID);
-		let format;
-		if (typeof authEmail === 'object') {
-
-		}
-		else if (typeof authEmail === 'string') {
-			format.authEmail = {
-				'email': authEmail,
-				'password': authPassword
-			};
-		}
 		return client.auth.loginWithCredential(new UserPasswordCredential(authEmail, authPassword));
 	}
 
