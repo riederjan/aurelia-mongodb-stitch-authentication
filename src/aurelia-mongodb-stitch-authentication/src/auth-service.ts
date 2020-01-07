@@ -1,4 +1,5 @@
 import { Stitch, RemoteMongoClient, UserPasswordAuthProviderClient, UserPasswordCredential } from 'mongodb-stitch-browser-sdk';
+import { applicationID } from './appID.json';
 
 export class AuthService {
 	authEmail: string;
