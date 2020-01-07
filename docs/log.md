@@ -34,4 +34,50 @@ export function configure(config: FrameworkConfiguration) {
 export { AuthService } from './auth-service'
 ```
 
-As you can see, I have completely removed the auth-service from the global resources and refered to it with ` export { AuthService } from './auth-service' `. This single line makes it possible to use the ` auth-service `in in the ` app.ts ` over the ` index.ts `. 
+As you can see, I have completely removed the auth-service from the global resources and refered to it with ` export { AuthService } from './auth-service' `. This single line makes it possible to use the ` auth-service `in in the ` app.ts ` over the ` index.ts `.
+
+## 06 Jaruary 2020
+### General
+Today I have solved a problem where I wasn't able to find the login function per dependency injection. My code looked like this:
+``` ts
+.login(this.authEmail, this.authPassword)
+  .then(authedUser => {
+    // Code
+  })
+```
+The Error that occured was `Unhandled Promise Rejection: Can't find variable: login`. That was because I had only written `.login(...)`. If you write it like that you create a new function named `login` but I want to use the login function from the dependency injection to the right way to declare it is:
+``` ts
+this.authService.login(this.authEmail, this.authPassword)
+  .then(authedUser => {
+    // Code
+  })
+```
+After I changed that, everything worked fine.
+
+## 07 Jaruary 2020
+### General
+Today I added a function where people can write their Stitch application ID in a  json file and the auth-service.ts file reads it out of that json file. This way it's way easier to comfigure the plugin. I have done this the following way.
+
+>1. I created a json file named `appID.json`
+
+The .json file look like this:
+```json
+{
+  "applicationID": "mongodb-stitch-appid"
+}
+```
+ The `mongodb-stitch.appid` has to be replaced with your own Stitch AppID.
+
+ >2. I read the data of `applicationID` key in the .json file from the `auth-serivce.ts` file.
+
+I read the data like this:
+``` ts
+import { applicationID } from './appID.json';
+
+login(authEmail?: string, authPassword?: string): Promise<any> {
+  // ...
+  let client = Stitch.initializeAppClient(applicationID);
+  // ...
+}
+```
+And that's literally everything you have to to if you want to read data from a .json file in TypeScript.
