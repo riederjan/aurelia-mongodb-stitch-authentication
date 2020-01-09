@@ -14,9 +14,13 @@ export class AuthService {
 		this.client = Stitch.initializeAppClient(authConfig.applicationId);
 	}
 
-	login(authEmail?: string, authPassword?: string): Promise<any> {
-		console.log(applicationID);
-		return this.client.auth.loginWithCredential(new UserPasswordCredential(authEmail, authPassword));
+	login(authEmail?: string, authPassword?: string): Promise<any>{
+		if (this.client){
+			return this.client.auth.loginWithCredential(new UserPasswordCredential(authEmail, authPassword));
+		}
+		else {
+			throw new Error("Call setAuthConfig first!");
+		}
 	}
 
 	isAuthenticated(): boolean {
