@@ -81,3 +81,78 @@ login(authEmail?: string, authPassword?: string): Promise<any> {
 }
 ```
 And that's literally everything you have to to if you want to read data from a .json file in TypeScript.
+
+## 09 Jaruary 2020
+### General - AuthService instance
+Today I was able to finish the major part of the plugin. I have added a router and two views, the login and the general view. A more important thing would be that I now use only one instance of the `AuthService` in one app. I had to configure this in the `index.ts` file:
+``` ts
+import { FrameworkConfiguration } from 'aurelia-framework';
+import { Container } from "aurelia-dependency-injection";
+import { AuthService } from "./auth-service";
+
+export function configure(config: FrameworkConfiguration) {
+  // ...
+  let container: Container = config.container;
+  let instance = new AuthService();
+
+  container.registerInstance(AuthService, instance);
+  // ...
+}
+```
+Here I create an instance of AuthService, and like this the constructor of the `auth-service.ts`is not called everytime the app is reloaded or the view is changed.
+
+I got the night on my side, and I'm wanted, dead or alive.
+I'm wanted, dead or alive, but I got the night on my side.
+
+## General - auth-service.ts
+I removed the appID.json file from the plugins file structure and moved it to the "user", which means that the user has to create this file. But before I was able to move the file I have created an `interface` in the `auth-serivce.ts`. I have also changed the `client` variable and moved it togheter with the `AuthConfig` Method which mainly belongs to the `interface`. Everything toghether looks like this:
+```ts
+// ...
+interface AuthConfig {
+	applicationId: string;
+}
+// ...
+export class AuthService {
+	public client : StitchAppClient;
+
+  setAuthConfig(authConfig : AuthConfig){
+    console.log(authConfig.applicationId);
+    this.client = Stitch.initializeAppClient(authConfig.applicationId);
+  }
+}
+```
+To make sure that an Authentication is only possible when the `setAuthConfig` Method was properly called before, I also had to change the `login` Method as followed:
+```ts
+login(authEmail?: string, authPassword?: string): Promise<any>{
+  if (this.client){
+    return this.client.auth.loginWithCredential(new UserPasswordCredential(authEmail, authPassword));
+  }
+  else {
+    throw new Error("Call setAuthConfig first!");
+  }
+}
+```
+I now throw an Error when the `setAuthConfig` was not properly set.
+
+## General - login.ts (for users)
+To now use the `setAuthConfig` Method th the only thing you have to do is write your `stitch appClientId` into the `appID.jaon` file and import it in the (in this example) `login.ts` file. After that you can put everything toghether in the `constructor`:
+```ts
+import { applicationID } from './appID.json';
+
+constructor(authService: AuthService){
+  const authConfig = {
+    applicationId: applicationID
+  };
+
+  authService = authService;
+  this.authService = authService;
+  this.authService.setAuthConfig(authConfig);
+}
+```
+The `appID.json` file look like this:
+```json
+{
+  "applicationID": "mongodb-stitch-appid"
+}
+
+```
