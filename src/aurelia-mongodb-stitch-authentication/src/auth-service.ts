@@ -7,10 +7,11 @@ interface AuthConfig {
 export class AuthService {
 	authEmail: string;
 	authPassword: string;
-	public client = Stitch.initializeAppClient(applicationID);
+	public client : StitchAppClient;
 
-	constructor(){
-		console.log("constructor from authService");
+	setAuthConfig(authConfig : AuthConfig){
+		console.log(authConfig.applicationId);
+		this.client = Stitch.initializeAppClient(authConfig.applicationId);
 	}
 
 	login(authEmail?: string, authPassword?: string): Promise<any> {
