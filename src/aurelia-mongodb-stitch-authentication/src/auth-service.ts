@@ -1,16 +1,18 @@
 import { Stitch, RemoteMongoClient, UserPasswordAuthProviderClient, UserPasswordCredential } from 'mongodb-stitch-browser-sdk';
 import { applicationID } from './appID.json';
 
-let client = Stitch.initializeAppClient(applicationID);
-
 export class AuthService {
 	authEmail: string;
 	authPassword: string;
-	authenticated: boolean;
+	public client = Stitch.initializeAppClient(applicationID);
+
+	constructor(){
+		console.log("constructor from authService");
+	}
 
 	login(authEmail?: string, authPassword?: string): Promise<any> {
 		console.log(applicationID);
-		return client.auth.loginWithCredential(new UserPasswordCredential(authEmail, authPassword));
+		return this.client.auth.loginWithCredential(new UserPasswordCredential(authEmail, authPassword));
 	}
 
 	isAuthenticated(): boolean {
