@@ -13,7 +13,11 @@ export class AuthService {
 		return client.auth.loginWithCredential(new UserPasswordCredential(authEmail, authPassword));
 	}
 
-	logout() {
+	isAuthenticated(): boolean {
+		return this.client.auth.isLoggedIn;
+	}
 
+	logout(): Promise<void> {
+		return this.client.auth.logout();
 	}
 }
