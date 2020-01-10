@@ -16,7 +16,6 @@ export class Login {
 
 		authService = authService;
 		this.authService = authService;
-		this.authService.setAuthConfig(authConfig);
 	}
 
 	authenticate(){
@@ -29,10 +28,12 @@ export class Login {
 				// Errorcode 46 on wrong input.
 				if (error.errorCode == "46") {
 					console.log("Invalid username or password.");
+					console.log(error);
 				}
 				// Errorcode 5 on no input.
 				else if (error.errorCode == "5") {
 					console.log("Please enter valid informations.");
+					console.log(error);
 				}
 			})
 	}
