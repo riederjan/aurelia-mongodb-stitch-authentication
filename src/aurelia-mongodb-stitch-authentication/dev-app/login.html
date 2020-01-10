@@ -1,0 +1,24 @@
+<template>
+	<!doctype html>
+	<html lang="de">
+	  <head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  </head>
+	  <body>
+			<p class="pageTitle">Login to MongoDB Stitch</p>
+			<p class="text">This plugin allows you to quickly connect to your mongoDB Stitch application.</p
+			<p class="text">Enter the required email / password login informations down below.</p>
+			<form>
+				<input type="text" placeholder="email" value.bind="authEmail">
+				<input type="password" placeholder="password" value.bind="authPassword">
+			</form>
+			<div class="placeholder"></div>
+			<button id="btnLogin" click.trigger="authenticate()">Login</button>
+			<button id="btnLogout" click.trigger="logout()">Logout</button>
+			<button click.trigger="isAuthenticated()">Auth?</button>
+			<div class="placeholder"></div>
+			<hr>
+	  </body>
+	</html>
+</template>
