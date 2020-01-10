@@ -1,0 +1,18 @@
+<template>
+	<!doctype html>
+	<html lang="de">
+		  <head>
+		    <meta charset="utf-8">
+		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		  </head>
+		  <body>
+				<div class="header">
+					<a class="headerLink" repeat.for="row of router.navigation" href.bind="row.href">${row.title}</a>
+					<div class="title">
+						<p class="headerTitle">Stitch Authentication</p>
+					</div>
+				</div>
+				<router-view></router-view>
+			</body>
+	</html>
+</template>
