@@ -10,7 +10,12 @@ export class AuthService {
 	public client : StitchAppClient;
 
 	setAuthConfig(authConfig : AuthConfig){
-		this.client = Stitch.initializeAppClient(authConfig.applicationId);
+		if (authConfig.applicationId == "mongodb-stitch-appid") {
+			console.log("Please change the applicationID in appID.json");
+		}
+		else {
+			this.client = Stitch.initializeAppClient(authConfig.applicationId);
+		}
 	}
 
 	login(authEmail?: string, authPassword?: string): Promise<any>{
