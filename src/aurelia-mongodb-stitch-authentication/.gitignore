@@ -19,7 +19,6 @@ Thumbs.db
 # Ref: https://github.com/github/gitignore/blob/master/Global/JetBrains.gitignore
 # Ref: https://github.com/github/gitignore/blob/master/Global/VisualStudioCode.gitignore
 .idea
-appID.json
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -28,7 +27,6 @@ appID.json
 
 # Dependencies
 node_modules
-dev-app
 
 # Compiled files
 /scripts
