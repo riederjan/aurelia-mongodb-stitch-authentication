@@ -10,7 +10,6 @@ export class AuthService {
 	public client : StitchAppClient;
 
 	setAuthConfig(authConfig : AuthConfig){
-		console.log(authConfig.applicationId);
 		this.client = Stitch.initializeAppClient(authConfig.applicationId);
 	}
 
