@@ -91,3 +91,8 @@ input {
 .headerTitle {
 	float: left;
 }
+/* --- Debug Section --- */
+.debugSection {
+	height: 15%;
+	width: 100%;
+}
