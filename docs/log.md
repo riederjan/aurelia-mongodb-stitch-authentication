@@ -36,7 +36,7 @@ export { AuthService } from './auth-service'
 
 As you can see, I have completely removed the auth-service from the global resources and refered to it with ` export { AuthService } from './auth-service' `. This single line makes it possible to use the ` auth-service `in in the ` app.ts ` over the ` index.ts `.
 
-## 06 Jaruary 2020
+## 06 January 2020
 ### General
 Today I have solved a problem where I wasn't able to find the login function per dependency injection. My code looked like this:
 ``` ts
@@ -54,7 +54,7 @@ this.authService.login(this.authEmail, this.authPassword)
 ```
 After I changed that, everything worked fine.
 
-## 07 Jaruary 2020
+## 07 January 2020
 ### General
 Today I added a function where people can write their Stitch application ID in a  json file and the auth-service.ts file reads it out of that json file. This way it's way easier to comfigure the plugin. I have done this the following way.
 
@@ -82,7 +82,7 @@ login(authEmail?: string, authPassword?: string): Promise<any> {
 ```
 And that's literally everything you have to to if you want to read data from a .json file in TypeScript.
 
-## 09 Jaruary 2020
+## 09 January 2020
 ### General - AuthService instance
 Today I was able to finish the major part of the plugin. I have added a router and two views, the login and the general view. A more important thing would be that I now use only one instance of the `AuthService` in one app. I had to configure this in the `index.ts` file:
 ``` ts
