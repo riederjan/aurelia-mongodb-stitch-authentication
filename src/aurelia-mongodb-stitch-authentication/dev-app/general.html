@@ -1,0 +1,30 @@
+<template>
+	<!doctype html>
+	<html lang="de">
+	  <head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  </head>
+	  <body>
+      <p class="pageTitle">About this Plugin</p>
+			<p class="text">The aurelia-mongodb-stitch-authentication plugin allows a user to quickly connect to his MongoDB Stitch
+			application.
+			<br>
+			Since this plugin is not that advanced yet, it only provides the Email/Password authentication with MongoDB Stitch.</p>
+			<hr>
+			<p class="secondPageTitle">Example Client</p>
+			<p class="text">This example client shows how to use this plugin, all things considered I have created an simple
+			Aurelia application with two views and the aurelia-mongodb-stitch-authentication plugin included.</p>
+			<hr>
+			<p class="secondPageTitle">Files</p>
+			<p class="text">A short explanation of which files are used for what:</p>
+			<p class="text" style="font-weight: bold;">Login Files (login.html, login.ts):</p>
+			<p class="text">In this example, the login files are the main files used to use the plugin. Especially the 'login.ts' file.
+			It uses injected functions form the 'auth-service.ts' file which is the main file of the plugin itself.</p>
+			<p class="text" style="font-weight: bold">appID (appID.json)</p>
+			<p class="text">The 'appID.json' file is used to set the 'applicationID' for MongoDB Stitch. If this ID is not set,
+			you will not be able to login your Stitch user.</p>
+			<hr>
+	  </body>
+	</html>
+</template>

@@ -1,0 +1,31 @@
+<template>
+	<!doctype html>
+	<html lang="de">
+	  <head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  </head>
+	  <body>
+			<p class="pageTitle">Login to MongoDB Stitch</p>
+			<p class="text">Before you enter the email / password informations in the following form, please make sure that you
+				have changed the app ID in the appID.json file.</p><br>
+				<p class="text">You can find the app ID online on <a href="https://stitch.mongodb.com" target="_blank">stitch.mongodb.com</a> ->
+					Stitch -> Your Application. Now you can copy the app ID in the top left corner.</p>
+			<p class="text">Enter the required email / password login informations down below.</p>
+			<form>
+				<input type="text" placeholder="email" value.bind="authEmail">
+				<input type="password" placeholder="password" value.bind="authPassword">
+			</form>
+			<div class="placeholder"></div>
+			<button id="btnLoginLogout" click.trigger="authenticate()">${btnLoginLogoutString}</button>
+			<button click.trigger="isAuthenticated()">Auth?</button>
+			<div class="placeholder"></div>
+			<hr>
+			<div class="placeholder"></div>
+			<div class="debugSection">
+				<p class="text" id="consoleOutput">${consoleOutput0}</p>
+				<p class="text" id="consoleOutput">${consoleError}</p>
+			</div>
+	  </body>
+	</html>
+</template>
