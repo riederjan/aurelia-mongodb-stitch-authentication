@@ -9,11 +9,12 @@ export class AuthService {
 	authPassword: string;
 	public client : StitchAppClient;
 
+	constructor() {
+		console.log("Constructor of AuthService");
+	}
+
 	setAuthConfig(authConfig : AuthConfig){
-		if (authConfig.applicationId == "mongodb-stitch-appid") {
-			console.log("Please change the applicationID in appID.json");
-		}
-		else {
+		if (!this.client) {
 			this.client = Stitch.initializeAppClient(authConfig.applicationId);
 		}
 	}
@@ -23,7 +24,7 @@ export class AuthService {
 			return this.client.auth.loginWithCredential(new UserPasswordCredential(authEmail, authPassword));
 		}
 		else {
-			throw new Error("Call setAuthConfig first!");
+			throw new Error("Call setAuthConfig Method first!");
 		}
 	}
 
