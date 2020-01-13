@@ -12,7 +12,7 @@ export class App {
 	configureRouter(config: RouterConfiguration, router: Router): void {
     config.title = "Aurelia MongoDB Stitch Authentication";
     config.map([
-      {route: 'login', name: 'login', title: 'Login', nav: true, moduleId: PLATFORM.moduleName('login')},
+      {route: 'login', name: 'login', title: 'Account', nav: true, moduleId: PLATFORM.moduleName('login')},
 			{route: ['', 'general'], name: 'general', title: 'General', nav: true, moduleId: PLATFORM.moduleName('general')},
     ]);
 		this.router = router;
