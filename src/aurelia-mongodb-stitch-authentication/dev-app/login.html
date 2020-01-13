@@ -17,8 +17,7 @@
 				<input type="password" placeholder="password" value.bind="authPassword">
 			</form>
 			<div class="placeholder"></div>
-			<button id="btnLogin" click.trigger="authenticate()">Login</button>
-			<button id="btnLogout" click.trigger="logout()">Logout</button>
+			<button id="btnLoginLogout" click.trigger="authenticate()">${btnLoginLogoutString}</button>
 			<button click.trigger="isAuthenticated()">Auth?</button>
 			<div class="placeholder"></div>
 			<hr>
