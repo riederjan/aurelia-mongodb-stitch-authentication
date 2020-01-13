@@ -13,9 +13,8 @@ export class Login {
 		const authConfig = {
 			applicationId: applicationID
 		};
-
-		authService = authService;
 		this.authService = authService;
+		this.authService.setAuthConfig(authConfig);
 	}
 
 	authenticate(){
