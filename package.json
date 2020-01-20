@@ -1,12 +1,12 @@
 {
   "name": "aurelia-mongodb-stitch-authentication",
   "description": "An authentication plugin for mongoDB Stitch applications.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "repository": {
-    "type": "???",
-    "url": "???"
+    "type": "git",
+    "url": "https://github.com/riederjan/aurelia-mongodb-stitch-authentication.git"
   },
-  "license": "UNLICENSED",
+  "license": "MIT",
   "devDependencies": {
     "aurelia-bootstrapper": "^2.3.2",
     "aurelia-animator-css": "^1.0.4",
