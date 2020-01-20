@@ -104,7 +104,7 @@ Here I create an instance of AuthService, and like this the constructor of the `
 I got the night on my side, and I'm wanted, dead or alive.
 I'm wanted, dead or alive, but I got the night on my side.
 
-## General - auth-service.ts
+### General - auth-service.ts
 I removed the appID.json file from the plugins file structure and moved it to the "user", which means that the user has to create this file. But before I was able to move the file I have created an `interface` in the `auth-serivce.ts`. I have also changed the `client` variable and moved it togheter with the `AuthConfig` Method which mainly belongs to the `interface`. Everything toghether looks like this:
 ```ts
 // ...
@@ -134,7 +134,7 @@ login(authEmail?: string, authPassword?: string): Promise<any>{
 ```
 I now throw an Error when the `setAuthConfig` was not properly set.
 
-## General - login.ts (for users)
+### General - login.ts (for users)
 To now use the `setAuthConfig` Method th the only thing you have to do is write your `stitch appClientId` into the `appID.jaon` file and import it in the (in this example) `login.ts` file. After that you can put everything toghether in the `constructor`:
 ```ts
 import { applicationID } from './appID.json';
@@ -156,3 +156,27 @@ The `appID.json` file look like this:
 }
 
 ```
+## 13 January 2020
+### General - auth-service
+I had an error in the application that caused that the "Account" tab didn't work anymore. The error that appeared wasn't really informative becuse it looked like this:
+``` text
+ERROR [app-router] – "Error: Error invoking Login. Check the
+inner error for details.↵-----------------------------------
+-------------↵Inner Error:↵Message…"
+```
+In the end I found out that this error occurs because I had this line of code in the constructor:
+``` ts
+this.client = Stitch.initializeAppClient(authConfig.applicationId);
+```
+The problem was that I wanted to inizialize the appClient everytime the constructor is called. So I had to chage things that the appClient only will be inizialized one time it chages.
+I have done this like this:
+``` ts
+setAuthConfig(authConfig : AuthConfig){
+  if (!this.client) {
+    this.client = Stitch.initializeAppClient(authConfig.applicationId);
+  }
+}
+```
+
+### General - release
+Today I made the first ever release of this plugin! The version tag is 1.0.0. This version works nice and does not produce any error's.
