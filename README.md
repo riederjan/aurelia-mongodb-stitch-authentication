@@ -33,8 +33,33 @@ Now the Aurelia project is created and ready to use. Still in the Terminal, chan
 ```cmd
 au run --watch
 ```
-The `--watch`parameter is used to activate the verbose mode while the project gets compiled.
+The `--watch` parameter is used to activate the verbose mode while the project gets compiled.
 
 As the compilation is finished, you can now open the browser under http://localhost:8080 to see the running application.
 
 ### Install the Plugin
+To install the `aurelia-mongodb-stitch-authentication` plugin you have to change the directory to the top of the project. This is also where a file named `package.json` is located. Here you type:
+```cmd
+npm install --save-dev aurelia-mongodb-stitch-authentication
+```
+With the parameter `--save-dev`, npm automatically adds this package as a dependency to your `package.json` file.
+This also means that if you can find the entry `aurelia-mongodb-stitch-authentication` under `dependencies` in the `package.json` file, that the installation surely worked.
+
+### Importing the Plugin
+Now as the authentication plugin is installed you can open up the project folder in an editor. In the folder `src` you can find three different files, `app.html`, `app.ts` and `index.ts`. In the file `app.ts` you can now import the plugin by adding this line:
+```ts
+import { AuthService } from 'aurelia-mongodb-stitch-authentication';
+```
+But before you can use the plugin you have to create an new file in the `src` folder with the name `appID.json`. Inside of this file add following line:
+
+### The appID.json file
+```json
+{
+  "applicationID": "mongodb-stitch-appid"
+}
+```
+Replace the `mongodb-stitch-appid` variable with your own MongoDB Stitch Application ID from [http://stitch.mongodb.com/](http://stitch.mongodb.com/).
+
+
+### Example Application
+I made a example application where I use this plugin to authenticate to my MongoDB Stitch Appliation. You can download the `dev-app` folder where the example application is stored.
