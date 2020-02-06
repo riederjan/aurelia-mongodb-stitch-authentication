@@ -24,7 +24,7 @@ au new
 ```
 You are now prompted to enter a name for the project. After you chose a name, hit enter and you will move on to the project setup. Now you an choose whether you want a ESNext or a TypeScript Application.
 
-###### _Information about the project setup:_
+##### _Information about the project setup:_
 _I have written this plugin and the example application all in TypeScript, so i would recommend to use TypeScript too if you are new to this. Otherwise, if you are experienced with ESNext you can choose ESNext of course._
 
 As a last configuration step, you can choose if some `npm dependencies` should be installed or not. I recommend to install those, because it installs important packages for the application to run.
