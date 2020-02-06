@@ -60,6 +60,35 @@ But before you can use the plugin you have to create an new file in the `src` fo
 ```
 Replace the `mongodb-stitch-appid` variable with your own MongoDB Stitch Application ID from [http://stitch.mongodb.com/](http://stitch.mongodb.com/).
 
+### Some example functions
+Now you have successfully installed the `aurelia-mongodb-stitch-authentication` plugin for an Aurelia Application. Now I will write down some of the functions with capital importance. For example the login function can look like this:
+```ts
+authenticate(){
+  this.authService.login(this.authEmail, this.authPassword)
+    .then(() => {
+      console.log("logged in")
+    })
+}
+```
+In this little piece of code I have also get a `console.log()` output, in case the login was successful.
 
-### Example Application
-I made a example application where I use this plugin to authenticate to my MongoDB Stitch Appliation. You can download the `dev-app` folder where the example application is stored.
+Another main function is the `logout` function. But once you know how to write a login function, the logout function really is nothing special anymore:
+```ts
+logout(){
+  this.authService.logout()
+    .then (() => {
+      console.log("logged out")
+    })
+}
+```
+Here I get an console output too, in case the logout was successful.
+
+### Optional: The dev-app
+##### Setting up the dev-app
+I made a example application where I use this plugin to authenticate to my MongoDB Stitch Appliation. You can download the `dev-app` folder from this project where the example application is stored. Once you downloaded and unpacked this project you have to open up a terminal window.
+
+In the terminal, navigate to the unpacked folder.
+From there change the directory to `aurelia-mongodb-stitch-authentication` and then type `npm install` to install all dependencies for the aurelia-mongodb-stitch-authentication application to run. As soon as the dependencies are installed you can type `npm start` to start the application. Now it can be reached in the browser under http://localhost:9000.
+
+##### Using the dev-app
+To test the dev-app, you only have to edit the `appID.json` file and insert your own MongoDB Stitch Appliation ID. Once you have done this, you are able to login with a user in your Application.
