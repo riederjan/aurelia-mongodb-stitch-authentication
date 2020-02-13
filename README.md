@@ -1,44 +1,44 @@
 # Aurelia MongoDB Stitch Authentication
-## What is this
-This Project is about an authentication plugin for the `Aurelia` Framework. `Aurelia` is a framework that empowers you to build components using vanilla JavaScript or TypeScript.
+## Abstract
+This project is an authentication plugin for the `Aurelia` Framework. `Aurelia` is a framework that allows you to build components using vanilla JavaScript or TypeScript.
 
-Anyway, this plugin allows you to quickly login to your MongoDB Stitch Application, for example via a normal HTML form. Until now, the plugin only supports the Email/Password user authentication for MongoDB Stitch.
+This plugin allows you to quickly log in to your MongoDB Stitch Application, for example via a standard HTML form. Until now, the plugin only supports Email/Password user authentication for MongoDB Stitch.
 
 ## Prerequisites
-To actually test this plugin you have to create an Aurelia test-application. To do this you have to use the Aurelia CLI. The fastest way to install the Aurelia CLI is to use `npm`, and `npm` is the nodeJS package-manager. It will be installed at the same time as nodeJS itself, so follow the instruction to install nodeJS.
+To actually test this plugin you have to create an Aurelia test-application. To do this you have to use the Aurelia CLI. The fastest way to install the Aurelia CLI is to use `npm`, the nodeJS package-manager. It will be installed at the same time as nodeJS itself, so follow the instructions to install nodeJS.
 
 ### Download and install nodeJS LTS
-To actually run this project on your local machine, you first have to install nodeJS LTS.
+To run this project on your local machine, you first have to install nodeJS LTS.
 To do so, you have to download nodeJS LTS for your operating system on https://nodejs.org/en/download/
 
 After the download is finished, run the downloaded file and follow the instructions of the installer.
 
 ## Run the Project
-As we now have installed the important prerequisites, we can finally move on to testing this plugin in a web-application.
+As we now have installed the important required packages, we can finally move on to testing this plugin in a web-application.
 
 ### Create an Aurelia Web-Application
-The first step to create an Aurelia web-application is to fire up a Terminal window and change in an empty directory on your computer. Once you are there, you can now type the command to create a new Aurelia project.
+The first step to create an Aurelia web-application is to fire up a terminal window and go to an empty directory on your computer. Once you are there, you can now type the following command to create a new Aurelia project.
 
 ```cmd
 au new
 ```
-You are now prompted to enter a name for the project. After you chose a name, hit enter and you will move on to the project setup. Now you can choose whether you want an ESNext or a TypeScript Application.
+You are now prompted to enter a name for the project. After you choose a name, hit enter and you will move on to the project setup. Now you can choose whether you want to create an ESNext or a TypeScript Application.
 
 ##### _Information about the project setup:_
-_I have written this plugin and the example application all in TypeScript, so I would recommend using TypeScript too if you are new to this. Otherwise, if you are experienced with ESNext you can choose ESNext of course._
+_The plugin and the example application are both written in TypeScript, so I would recommend using TypeScript too if you are new to this. Otherwise, if you are experienced with ESNext then you can of course use it instead._
 
-As a last configuration step, you can choose if some `npm dependencies` should be installed or not. I recommend installing those, because it installs important packages for the application to run.
+The last configuration step is to choose whether certain `npm dependencies` should be installed or not. I recommend installing them, because it installs important packages for the application to run.
 
-Now the Aurelia project is created and ready to use. Still in the Terminal, change into the project folder. You can start the application with the following command:
+Now the Aurelia project is created and ready to use. Still in the terminal, go into the project folder. You can start the application with the following command:
 ```cmd
 au run --watch
 ```
-The `--watch` parameter is used to activate the verbose mode while the project gets compiled.
+The `--watch` parameter is used to activate verbose mode while the project gets compiled.
 
-As the compilation is finished, you can now open the browser under http://localhost:8080 to see the running application.
+When the compilation is finished, you can open the browser under http://localhost:8080 to see the running application.
 
 ### Install the Plugin
-To install the `aurelia-mongodb-stitch-authentication` plugin you have to change the directory to the top of the project. This is also where a file named `package.json` is located. Here you type:
+To install the `aurelia-mongodb-stitch-authentication` plugin you have to change the directory to the root of the project. This is also where a file named `package.json` is located. Here you type:
 ```cmd
 npm install --save-dev aurelia-mongodb-stitch-authentication
 ```
@@ -50,7 +50,7 @@ Now as the authentication plugin is installed you can open up the project folder
 ```ts
 import { AuthService } from 'aurelia-mongodb-stitch-authentication';
 ```
-But before you can use the plugin you have to create an new file in the `src` folder with the name `appID.json`. Inside of this file add following line:
+But before you can use the plugin you have to create an new file in the `src` folder with the name `appID.json`. In this file add following line:
 
 ### The appID.json file
 Paste this piece of code into your appID.json file and replace `mongodb-stitch-appid` with your real MongoDB Stitch Application ID.
@@ -62,7 +62,7 @@ Paste this piece of code into your appID.json file and replace `mongodb-stitch-a
 Replace the `mongodb-stitch-appid` variable with your own MongoDB Stitch Application ID from [http://stitch.mongodb.com/](http://stitch.mongodb.com/).
 
 ### Some example functions
-Now you have successfully installed the `aurelia-mongodb-stitch-authentication` plugin for an Aurelia Application. Now I will write down some of the functions with capital importance. For example, the login function can look like this:
+Now you have successfully installed the `aurelia-mongodb-stitch-authentication` plugin for an Aurelia application. Written here are some of the important functions. For example, the login function can look like this:
 ```ts
 authenticate(){
   this.authService.login(this.authEmail, this.authPassword)
@@ -71,9 +71,9 @@ authenticate(){
     })
 }
 ```
-In this little piece of code I have also get a `console.log()` output, in case the login was successful.
+In this little piece of code, there is a `console.log()` output, for when the login was successful.
 
-Another main function is the `logout` function. But once you know how to write a login function, the logout function really is nothing special anymore:
+Another principle function is the `logout` function. But once you know how to write a login function, the logout function is not complicated:
 ```ts
 logout(){
   this.authService.logout()
@@ -82,14 +82,14 @@ logout(){
     })
 }
 ```
-Here I get a console output too; in case the logout was successful.
+Here I have a console output too; for when the logout was successful.
 
 ### Optional: The dev-app
 ##### Setting up the dev-app
-I made an example Application where I use this plugin to authenticate to my MongoDB Stitch Application. You can download the `dev-app` folder from this project where the example application is stored. Once you downloaded and unpacked this project you have to open up a terminal window.
+I made an example application where I used this plugin to authenticate to my MongoDB Stitch Application. You can download the `dev-app` folder from this project where the example application is stored. Once you have downloaded and unpacked this project, you have to open up a terminal window.
 
 In the terminal, navigate to the unpacked folder.
-From there change the directory to `aurelia-mongodb-stitch-authentication` and then type `npm install` to install all dependencies for the aurelia-mongodb-stitch-authentication application to run. As soon as the dependencies are installed you can type `npm start` to start the Application. Now it can be reached in the browser under http://localhost:9000.
+From there go into the directory `aurelia-mongodb-stitch-authentication` and then type `npm install` to install all dependencies for the aurelia-mongodb-stitch-authentication application. As soon as the dependencies are installed you can type `npm start` to start the application. Now it is available in the browser under http://localhost:9000.
 
 ##### Using the dev-app
-To test the dev-app, you only have to edit the `appID.json` file and insert your own MongoDB Stitch Application ID. Once you have done this, you are able to login with a user in your Application.
+To test the dev-app, you only have to edit the `appID.json` file and insert your own MongoDB Stitch Application ID. Once you have done this, you are able to login with a user in your application.
