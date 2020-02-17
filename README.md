@@ -13,6 +13,13 @@ To do so, you have to download nodeJS LTS for your operating system on https://n
 
 After the download is finished, open the file and follow the instructions of the installer.
 
+### Install the Aurelia CLI
+Once you have successfully installed nodeJS LTS, you are ready to install the Aurelia CLI. The Aurelia CLI is an important tool in this project. With its help you can create, manage, configure, run and delete Aurelia applications.
+This is how it is installed:
+```cmd
+npm install -g aurelia-cli
+```
+
 ## Run the Project
 As we have now installed the important required packages, we can finally move on to testing this plugin in a web-application.
 
