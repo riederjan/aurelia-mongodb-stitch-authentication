@@ -7,11 +7,19 @@ This plugin allows you to quickly log in to your MongoDB Stitch Application, for
 ## Prerequisites
 To actually test this plugin you have to create an Aurelia test-application. To do this you have to use the Aurelia CLI. The fastest way to install the Aurelia CLI is to use `npm`, the nodeJS package-manager. It will be installed at the same time as nodeJS itself, so follow the instructions to install nodeJS.
 
+### Download and install GIT
+The first tool to install is GIT. GIT will be necessary to install the node components before you can run a downloaded Aurelia project (for example the dev-app, which we will use later).
+
+To install GIT, you just have to download the installer from the official website ([https://git-scm.com/downloads](https://git-scm.com/downloads)) and follow its instructions.
+
 ### Download and install nodeJS LTS
 To run this project on your local machine, you first have to install nodeJS LTS.
 To do so, you have to download nodeJS LTS for your operating system on https://nodejs.org/en/download/
 
 After the download is finished, open the file and follow the instructions of the installer.
+
+#### Additional note:
+Once you have installed nodeJS you have to close and reopen all Terminal windows, after that node is ready to use. Also consider using the system Terminal (or cmd on Window), and not the node console.
 
 ### Install the Aurelia CLI
 Once you have successfully installed nodeJS LTS, you are ready to install the Aurelia CLI. The Aurelia CLI is an important tool in this project. With its help you can create, manage, configure, run and delete Aurelia applications.
@@ -19,7 +27,6 @@ This is how it is installed:
 ```cmd
 npm install -g aurelia-cli
 ```
-
 ## Run the Project
 As we have now installed the important required packages, we can finally move on to testing this plugin in a web-application.
 
