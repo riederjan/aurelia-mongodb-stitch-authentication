@@ -10,7 +10,7 @@ To actually test this plugin you have to create an Aurelia test-application. To 
 ### Download and install GIT
 The first tool to install is GIT. GIT will be necessary to install the node components before you can run a downloaded Aurelia project (for example the dev-app, which we will use later).
 
-To install GIT, you just have to download the installer from the official website ([https://git-scm.com/downloads](https://git-scm.com/downloads)) and follow its instructions.
+To install GIT, you just have to download the installer from the official website ([https://git-scm.com/downloads](https://git-scm.com/downloads)) and follow the instructions.
 
 ### Download and install nodeJS LTS
 To run this project on your local machine, you first have to install nodeJS LTS.
@@ -19,7 +19,7 @@ To do so, you have to download nodeJS LTS for your operating system on https://n
 After the download is finished, open the file and follow the instructions of the installer.
 
 #### Additional note:
-Once you have installed nodeJS you have to close and reopen all Terminal windows, after that node is ready to use. Also consider using the system Terminal (or cmd on Window), and not the node console.
+Once you have installed nodeJS you have to close and reopen all Terminal windows, after that node is ready to use. Also consider using the system Terminal (or cmd on Windows), and not the node console.
 
 ### Install the Aurelia CLI
 Once you have successfully installed nodeJS LTS, you are ready to install the Aurelia CLI. The Aurelia CLI is an important tool in this project. With its help you can create, manage, configure, run and delete Aurelia applications.
@@ -39,7 +39,7 @@ au new
 You are now prompted to enter a name for the project. After you choose a name, hit enter and you will move on to the project setup. Now you can choose whether you want to create an ESNext or a TypeScript Application.
 
 ##### _Information about the project setup:_
-_The plugin and the example application are both written in TypeScript, so I recommend using TypeScript too if you are new to this. Otherwise, if you are experienced with ESNext then you can of course use it instead._
+_The plugin and the example application are both written in TypeScript, so I recommend using TypeScript too if you are new to this. Otherwise, if you are experienced with ESNext then you can, of course, use it instead._
 
 The last configuration step is to choose whether certain `npm dependencies` should be installed or not. I recommend doing this, because it installs important packages for the application to run.
 
